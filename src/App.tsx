@@ -1,64 +1,28 @@
-// import Button from './components/Button/Button'
-import { useFetch } from './hooks/useFetch.ts'
-
-interface Data {
-  name: string;
-  lastName: string;
-  age: number;
-  // Agrega otros campos según sea necesario
-}
-
-
 import './App.css'
-// import { useEffect, useState } from 'react'
-// Esto es un modulo /App.css
-
-
-
+import { ColorRed, Button } from './components/Button/Button.tsx';
 function App() {
 
-  const URL = "https://cataas.com/api/cats?limit=10&skip=4&tags=white"
 
-
-  const { data, loading, error } = useFetch<Data>(URL)
-
-
-
-  if (loading) {
-    return <>
-
-      <h1>
-
-        cargando...
-
-      </h1>
-
-
-
-    </>
+  const handleClick = () => {
+    console.log("uy clickio todo, red");
   }
-  if (error) {
-    return (
-      <>
-        <div>Ups! hubo un error: {error.message}</div>
 
-      </>
-
-    )
-
-
+  const diHola = () => {
+    console.log("hola");
   }
+
 
   return (
     <>
-      <h1> exito 200
-      </h1>
+
+      <ColorRed >   <Button parentMethod={handleClick} >My buton red   </Button>  </ColorRed>
+
+      <Button parentMethod={diHola} >dice hola </Button>
+
     </>
   )
 }
-
 export default App
-
 
 
 
